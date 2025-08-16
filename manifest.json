@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Roblox Community Wealth Tracker",
+  "version": "1.0",
+  "description": "Track and rank Roblox community members by their limited item wealth",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.roblox.com/*",
+    "https://users.roblox.com/*",
+    "https://groups.roblox.com/*",
+    "https://inventory.roblox.com/*",
+    "https://economy.roblox.com/*",
+    "https://api.roblox.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Roblox Community Wealth Tracker"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.roblox.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

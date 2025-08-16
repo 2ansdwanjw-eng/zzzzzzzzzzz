@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 400px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 0 0 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        #searchBtn {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        #searchBtn:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+        
+        #refreshBtn {
+            background: #2196F3;
+            color: white;
+        }
+        
+        #refreshBtn:hover {
+            background: #1976D2;
+            transform: translateY(-1px);
+        }
+        
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .status {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 14px;
+            min-height: 20px;
+        }
+        
+        .error {
+            color: #ff6b6b;
+        }
+        
+        .success {
+            color: #51cf66;
+        }
+        
+        .loading {
+            color: #ffd43b;
+        }
+        
+        .results {
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.2);
+            margin-top: 15px;
+        }
+        
+        .member-item {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .member-item:last-child {
+            border-bottom: none;
+        }
+        
+        .member-rank {
+            font-weight: bold;
+            color: #ffd43b;
+            width: 30px;
+            flex-shrink: 0;
+        }
+        
+        .member-info {
+            flex: 1;
+            margin-left: 10px;
+        }
+        
+        .member-username {
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .member-wealth {
+            font-size: 12px;
+            color: #51cf66;
+            font-weight: 600;
+        }
+        
+        .results::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .results::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        .results::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+        
+        .results::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 Roblox Community Wealth Tracker</h1>
+        
+        <div class="input-group">
+            <label for="communityLink">Community Link:</label>
+            <input type="text" id="communityLink" placeholder="https://www.roblox.com/communities/35461612/Z9-Market#!/about">
+        </div>
+        
+        <div class="button-group">
+            <button id="searchBtn">🔍 Search for List</button>
+            <button id="refreshBtn" disabled>🔄 Refresh</button>
+        </div>
+        
+        <div id="status" class="status"></div>
+        
+        <div id="results" class="results" style="display: none;"></div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
