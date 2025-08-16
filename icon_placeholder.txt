@@ -1,0 +1,18 @@
+# Icon Files Needed
+
+For the Chrome extension to work properly, you need to create the following icon files:
+
+- icon16.png (16x16 pixels)
+- icon48.png (48x48 pixels) 
+- icon128.png (128x128 pixels)
+
+These should be PNG files with a simple icon representing the extension (e.g., a treasure chest, coins, or crown symbol).
+
+You can create these icons using any image editor or download free icons from sites like:
+- Flaticon.com
+- Icons8.com
+- Iconfinder.com
+
+Place the icon files in the same directory as the manifest.json file.
+
+Until you add the icon files, the extension will work but may show a default placeholder icon.
